@@ -1,0 +1,261 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+p { 
+    color: #e99e75 
+           #44426e 
+           #776483
+           #bbaab8 
+           #292643 
+}
+
+a {
+    text-decoration: none;
+}
+
+#main_page {
+    background-color: #292643;
+    padding: 1px 10%;
+    box-sizing: border-box;
+    position: relative;
+    z-index: -10;
+}
+
+#nav_bar {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav_item {
+    display: inline;
+    margin: 0 2%;
+}
+
+#logo {
+    font-family: 'Lilita One';
+    font-size: 72px;
+    font-weight: 400;
+    color: #bbaab8;
+}
+
+#content {
+    position: relative;
+    padding: 0 0 0 14%;
+}
+
+#line {
+    background-color: #bbaab8;
+    width: 5px;
+    height: 95%;
+    position: absolute;
+    left: 12%;
+    top: 5%;
+    z-index: -1;
+}
+
+#start {
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;   
+}
+
+#start_text {
+    padding: 10% 0;
+    color: #e99e75;
+}
+
+.code {
+    transform: scale(var(--ggs,1));
+    margin: 30px 0;
+}
+
+.code, .code::after, .code::before {
+    box-sizing: border-box;
+    position: relative;
+    display: block;
+    width: 8px;
+    height: 20px
+}
+
+.code::after, .code::before {
+    content: "";
+    position: absolute;
+    height: 8px;
+    border-left: 2px solid;
+    border-bottom: 2px solid;
+    transform: rotate(45deg) scaleY(1);
+    left: -4px;
+    top: 6px
+}
+
+.code::after {
+    transform: rotate(-45deg) scaleX(-1);
+    left: 4px
+}
+
+.code_slash {
+    display: block;
+    position: relative;
+    box-sizing: border-box;
+    transform: rotate(15deg) scale(var(--ggs,1));
+    width: 2px;
+    height: 16px;
+    background: #e99e75;
+    margin: 30px 0;
+}
+   
+.code_slash::after, .code_slash::before {
+    content: "";
+    display: block;
+    box-sizing: border-box;
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    transform: rotate(-60deg)
+}
+   
+.code_slash::before {
+    border-left: 2px solid;
+    border-top: 2px solid;
+    left: -8px;
+    top: 5px
+}
+   
+.code_slash::after {
+    border-right: 2px solid;
+    border-bottom: 2px solid;
+    right: -8px;
+    top: 3px
+} 
+
+h1, h2 {
+    margin: 5px 0;
+}
+
+#comment {
+    display: flex;
+    justify-content: space-between;
+}
+
+#about_me {
+    height: 100vh;
+    margin-right: 15%;
+}
+
+#grid {
+    height: 80vh;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    gap: 10px;
+}
+
+#skills {
+    grid-column: 1 / 4;
+    grid-row: 1 / 3;
+    padding: 20px;
+}
+
+.margin-left {
+    margin-left: 50px;
+}
+
+#education {
+    grid-column: 4 / 6;
+    grid-row: 1 / 3;
+    padding: 20px;
+}
+
+#social_media {
+    width: 40%;
+    height: 50vh;
+}
+
+#links{
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#link_for_media {
+    height: 20vh;
+    padding: 10px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.link_item {
+    display: flex;
+    justify-content: space-between;
+}
+
+button {
+    width: 100%;
+    border: 5px solid #e99e75;
+    border-radius: 10px;
+    background-color: #292643;
+    margin: 10px 0;
+    padding: 10px;
+    color: #e99e75;
+    letter-spacing: 8px;
+}
+
+footer {
+    color: #44426e;
+    margin-top: 10vh;
+}
+
+.border_type_light {
+    border: 4px solid #e99e75;
+    border-radius: 10px;
+}
+
+
+.border_type_dark {
+    border: 4px solid #776483;
+    border-radius: 10px;
+}
+
+.font-lilita-one {
+    font-family: 'Lilita One';
+}
+
+.font-18px {
+    font-size: 18px;
+}
+
+.font-24px {
+    font-size: 24px;
+}
+
+.font-32px {
+    font-size: 32px;
+}
+
+.font-40px {
+    font-size: 40px;
+}
+
+.font-56px {
+    font-size: 56px;
+}
+
+.color-bbaab8 {
+    color: #bbaab8;
+}
+
+.color-44426e {
+    color:#44426e
+}
+
+.color-e99e75 {
+    color: #e99e75;
+}
+
