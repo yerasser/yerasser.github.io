@@ -1,12 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Программа для работы с базой данных</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
 </head>
 <body>
-    <h1>Yerasyl Serikov</h1>    
+  <h1>Программа для работы с базой данных</h1>
+  <label for="nameInput">Введите название из базы данных:</label>
+  <input type="text" id="nameInput" list="nameList">
+  <datalist id="nameList">
+    <!-- Варианты будут добавлены через JavaScript -->
+  </datalist>
+  <button id="showNumberButton">Показать число</button>
+  <p id="numberDisplay"></p>
+
+  <script>
+    const nameInput = document.getElementById('nameInput');
+    const nameList = document.getElementById('nameList');
+    const showNumberButton = document.getElementById('showNumberButton');
+    const numberDisplay = document.getElementById('numberDisplay');
+
+    showNumberButton.addEventListener('click', async () => {
+      const inputName = nameInput.value;
+
+      // Загрузка Excel файла (замените на свой путь к файлу)
+      const response = await fetch('database.xlsx');
+      const arrayBuffer = await response.arrayBuffer();
+      const workbook = XLSX.read(arrayBuffer, { type: 'array' });
+
+      // Получение данных из первого листа (предполагается, что данные начинаются с первой строки)
+      const firstSheetName = workbook.SheetNames[0];
+      const worksheet = workbook.Sheets[firstSheetName];
+      const data = XLSX.utils.sheet_to_json(worksheet);
+
+      // Заполняем автокомплит данными из Excel файла
+      data.forEach(entry => {
+        const option = document.createElement('option');
+        option.value = entry.name;
+        nameList.appendChild(option);
+      });
+
+      const selectedEntry = data.find(item => item.name === inputName);
+
+      if (selectedEntry) {
+        numberDisplay.textContent = `Для "${inputName}" число: ${selectedEntry.number}`;
+      } else {
+        numberDisplay.textContent = 'Запись не найдена';
+      }
+    });
+  </script>
 </body>
 </html>
